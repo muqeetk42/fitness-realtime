@@ -6,7 +6,10 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000", // Allow only our Next.js client
+  credentials: true,               // Allow cookies and auth headers
+}));
 app.use(express.json());
 
 // 🔗 Connect to MongoDB
